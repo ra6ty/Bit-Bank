@@ -1,11 +1,19 @@
 import React from 'react';
+import "./App.scss"
+import {Badge, Button} from "react-bootstrap";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Main from "../../pages/Main/Main";
 
-function App() {
+const App: React.FC = () => {
     return (
         <div className="App">
-            <h1>hello</h1>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={< Main/>}/>
+                </Routes>
+            </BrowserRouter>
         </div>
     );
-}
+};
 
 export default App;
