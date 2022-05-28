@@ -1,15 +1,16 @@
 import React from 'react';
 import "./App.scss"
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Main from "../../pages/Main/Main";
+import {BrowserRouter} from "react-router-dom";
+import {useRoutes} from "../../routes";
 
 const App: React.FC = () => {
+
+    const routes = useRoutes()
+
     return (
         <div className="App">
             <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={< Main/>}/>
-                </Routes>
+                {routes}
             </BrowserRouter>
         </div>
     );
