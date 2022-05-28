@@ -1,11 +1,19 @@
 import React from 'react';
+import "./App.scss"
+import {BrowserRouter} from "react-router-dom";
+import {useRoutes} from "../../routes";
 
-function App() {
+const App: React.FC = () => {
+
+    const routes = useRoutes()
+
     return (
         <div className="App">
-            <h1>hello</h1>
+            <BrowserRouter>
+                {routes}
+            </BrowserRouter>
         </div>
     );
-}
+};
 
 export default App;
