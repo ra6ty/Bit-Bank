@@ -1,6 +1,5 @@
 import React from 'react';
 import "./App.scss"
-import {Badge, Button} from "react-bootstrap";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Main from "../../pages/Main/Main";
 

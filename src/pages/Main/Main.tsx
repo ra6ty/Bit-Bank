@@ -1,13 +1,12 @@
 import React from 'react';
 import "./Main.scss"
+import Header from "../../component/Header/Header";
 
 const Main: React.FC = () => {
 
-    console.log("test")
-
     return (
         <div className="Main">
-
+            <Header/>
         </div>
     );
 };
