@@ -3,7 +3,7 @@ import "./App.scss"
 import {BrowserRouter} from "react-router-dom";
 import {useRoutes} from "../../routes";
 
-const App: React.FC = () => {
+const App:React.FC = () => {
 
     const routes = useRoutes()
 

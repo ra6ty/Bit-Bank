@@ -2,7 +2,7 @@ import React from 'react';
 import "./Header.scss"
 import {Navbar, Nav, Container, Dropdown} from 'react-bootstrap';
 
-const Header: React.FC = () => {
+const Header:React.FC = () => {
 
     let styleTextInButton = {
         color: "#52C2A6"
