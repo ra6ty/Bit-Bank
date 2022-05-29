@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Header.scss"
-import {Navbar, Nav, Container, Dropdown, SplitButton} from 'react-bootstrap';
+import {Navbar, Nav, Container, Dropdown} from 'react-bootstrap';
 
 const Header: React.FC = () => {
 
