@@ -1,7 +1,6 @@
 import React from 'react';
 import "./Main.scss"
 
-
 const Main: React.FC = () => {
 
     const heroAreaStyle = {
