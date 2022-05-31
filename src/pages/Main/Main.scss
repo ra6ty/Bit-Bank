@@ -1,4 +1,124 @@
-main {
-  min-height: 700px;
-  background-color: #31BB9E;
+.Main {
+  .hero-area {
+    padding: 80px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  @media (max-width: 480px) {
+    .hero-area {
+      padding: 40px 0;
+    }
+  }
+
+  .hero-area .block {
+    color: #fff;
+    padding-left: 30px;
+  }
+
+  @media (max-width: 480px) {
+    .hero-area .block {
+      padding: 0;
+    }
+  }
+
+  .hero-area .block h2 {
+    font-size: 48px;
+    margin-bottom: 40px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+  }
+
+  .hero-area .block p {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  .hero-area .block .list-inline {
+    margin-top: 50px;
+  }
+
+  .hero-area .block .btn-main, .hero-area .block .btn-main-sm {
+    margin-right: 8px;
+    background-color: #31BB9E;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px 40px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    border-radius: 2px;
+  }
+
+  .video-player iframe {
+    min-width: 100%;
+    min-height: 20rem;
+  }
+  .counter {
+    .counters-item {
+     padding: 50px 0;
+      color: #444;
+      position: relative;
+      text-align: center;
+    }
+
+    .counters-item.kill-border:before {
+      background: none;
+    }
+
+    .counters-item:before {
+      background: #e5e5e5;
+      content: "";
+      margin-top: -27.5px;
+      height: 55px;
+      width: 1px;
+      position: absolute;
+      right: -15px;
+      top: 50%;
+    }
+
+    .counters-item > div {
+      margin: 6px 0;
+    }
+
+    .counters-item span {
+      display: inline;
+      font-size: 35px;
+      font-weight: 700;
+      line-height: 50px;
+    }
+    .counters-item p{
+
+      color: #9a9a9a;
+      font-size: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .counters-item span {
+        font-size: 20px;
+        line-height: 0;
+      }
+      .counters-item p {
+        font-size: 14px;
+      }
+    }
+
+    .counters-item i {
+      font-size: 40px;
+      display: inline-block;
+      color: #31BB9E;
+    }
+
+    .counters-item h3 {
+      font-size: 18px;
+      margin: 0;
+      color: #666;
+    }
+  }
 }
