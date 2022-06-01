@@ -15,14 +15,14 @@ const Register: React.FC = () => {
         text?: string,
         enabled: boolean
     }>({
-        text: "Введіть привильне імя",
+        text: "Введіть правильне імя",
         enabled: false
     })
     const [errorPhone, setErrorPhone] = useState<{
         text?: string,
         enabled: boolean
     }>({
-        text: "Введіть првильний телефон",
+        text: "Введіть правильний телефон",
         enabled: false
     })
     const [errorEmail, setErrorEmail] = useState<{
@@ -36,7 +36,7 @@ const Register: React.FC = () => {
         text?: string,
         enabled: boolean
     }>({
-        text: "Введіть привильний пароль який має включати символи'?@#$%*'",
+        text: "Введіть правильний пароль який має включати символи'?@#$%*'",
         enabled: false
     })
 
@@ -63,7 +63,7 @@ const Register: React.FC = () => {
             setErrorPhone({...errorPhone, enabled: true})
         }
 
-        let regForEmail = /^[-\w.]+@([A-z][-A-z]+\.)+[A-z]{2,4}$/
+        let regForEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
         if (!regForEmail.test(emailValue)) {
             setErrorEmail({...errorEmail, enabled: true})
@@ -73,6 +73,7 @@ const Register: React.FC = () => {
 
         if (!regForPass.test(passValue)) {
             setErrorPass({...errorPass, enabled: true})
+            return
         }
 
         axios.post('https://user-simple.herokuapp.com/auth/registration', {
@@ -85,16 +86,15 @@ const Register: React.FC = () => {
                 if (response.data.status === "user created") {
                     setShow(true)
                     setEmailBusy(false)
+                    setNameValue("")
+                    setPhoneValue("")
+                    setEmailValue("")
+                    setPassValue("")
                 }
                 if (response.data.status === "email is used") {
                     setEmailBusy(true)
                 }
             })
-
-        setNameValue("")
-        setPhoneValue("")
-        setEmailValue("")
-        setPassValue("")
     }
 
     const handleClose = () => setShow(false);

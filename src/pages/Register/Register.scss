@@ -1,5 +1,5 @@
 .register {
-  padding: 8rem 0;
+  padding: 2rem 0;
   background: #31BB9E;
   overflow-y: hidden !important;
 }
@@ -26,15 +26,21 @@
 .modal-dialog {
   margin: 10.75rem auto;
 }
-@media (max-width: 1700px) {
+@media (max-width: 1400px) {
   .register {
-    padding: 10rem 0;
+    padding: 7rem 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .register {
+    padding: 7rem 0;
   }
 }
 
 @media (max-width: 400px) {
   .register {
-    padding: 11rem 0;
+    padding: 9rem 0;
   }
 }
 

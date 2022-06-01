@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Header.scss"
 import {Navbar, Nav, Container, Dropdown} from 'react-bootstrap';
+import {Link} from "react-router-dom";
 
 const Header:React.FC = () => {
 
@@ -15,10 +16,10 @@ const Header:React.FC = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="nav-menu">
-                        <Nav.Link className="nav-link nav-main" href="#home">Home</Nav.Link>
-                        <Nav.Link className="nav-link nav-main" href="#home">Home</Nav.Link>
-                        <Nav.Link className="nav-link nav-main" href="#home">Home</Nav.Link>
-                        <Nav.Link className="nav-link nav-main" href="#home">Home</Nav.Link>
+                        <Nav.Link ><Link className="nav-link nav-main" to="/">Home</Link></Nav.Link>
+                        {/*<Nav.Link className="nav-link nav-main" href="#home">Home</Nav.Link>*/}
+                        {/*<Nav.Link className="nav-link nav-main" href="#home">Home</Nav.Link>*/}
+                        {/*<Nav.Link className="nav-link nav-main" href="#home">Home</Nav.Link>*/}
                     </Nav>
                     <Nav className="nav-sign">
                         <Dropdown>
@@ -29,7 +30,7 @@ const Header:React.FC = () => {
                                 <Dropdown.Item style={styleTextInButton} href="#/action-2">EN</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
-                        <Nav.Link className="nav-link nav-sign-in" href="#home">Sign In</Nav.Link>
+                        <Nav.Link><Link className="nav-link nav-sign-in" to="/register">Sign In</Link></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

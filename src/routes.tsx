@@ -15,7 +15,8 @@ export const useRoutes = () => {
     } else {
         return (
             <Routes>
-                <Route path="/" element={< Register/>}/>
+                <Route path="/" element={< Main/>}/>
+                <Route path="/register" element={< Register/>}/>
             </Routes>
         )
     }
