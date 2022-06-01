@@ -1,9 +1,10 @@
 import React from "react";
 import {Route, Routes} from "react-router-dom";
 import Main from "./pages/Main/Main";
+import Register from "./pages/Register/Register";
 
 export const useRoutes = () => {
-    const isAuth: boolean = true;
+    const isAuth: boolean = false;
 
     if (isAuth) {
         return (
@@ -14,7 +15,7 @@ export const useRoutes = () => {
     } else {
         return (
             <Routes>
-                <Route path="/" element={< Main/>}/>
+                <Route path="/" element={< Register/>}/>
             </Routes>
         )
     }

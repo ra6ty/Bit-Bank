@@ -1,0 +1,90 @@
+.register {
+  padding: 8rem 0;
+  background: #31BB9E;
+}
+
+@media (max-width: 1700px) {
+  .register {
+    padding: 10rem 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .register {
+    padding:11rem 0;
+  }
+}
+
+.signin-page {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.block {
+  max-width: 540px;
+}
+
+.account h2 {
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.account .block form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 0 1px 46px -4px rgb(0 0 0 / 28%);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn-main {
+  background-color: #31BB9E;
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 10px 40px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+
+.btn-main:hover {
+  color: #fff;
+}
+
+.account a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  outline: none;
+  font-size: 23px;
+}
+
+.account p {
+  color: #fff;
+  text-decoration: none;
+  outline: none;
+  font-size: 23px;
+}
