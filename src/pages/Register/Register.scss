@@ -9,23 +9,27 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.modal-header{
-  border-bottom:4px solid #31BB9E ;
+.modal-header {
+  border-bottom: 4px solid #31BB9E;
 }
 
 .modal-content {
-  border:1px solid #31BB9E ;
+  border: 1px solid #31BB9E;
 }
+
 .modal-body {
   padding: 2rem 1rem;
   font-size: 20px;
 }
+
 .modal {
   padding-left: 0 !important;
 }
+
 .modal-dialog {
   margin: 10.75rem auto;
 }
+
 @media (max-width: 1400px) {
   .register {
     padding: 7rem 0;
@@ -60,7 +64,8 @@ h5 {
   text-decoration: none;
   outline: none;
   margin-top: 1rem;
- }
+}
+
 .account h2 {
   color: #fff;
   font-family: "Playfair Display", serif;
