@@ -22,13 +22,13 @@ const Header: React.FC = () => {
     return (
         <Navbar className="navigation" bg="dark" expand="lg" variant="dark">
             <Container>
-                <Navbar.Brand href="#">
+                <Navbar.Brand>
                     <Link to="/"><img className="logo" src="./images/logo.png" alt="logo"/></Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="nav-menu">
-                        {!isLogin ? "" : <Nav.Link><Link className="nav-link nav-main" to="/">Home</Link></Nav.Link>}
+                        {!isLogin ? "" : <Link className="nav-link nav-main" to="/">Home</Link>}
                     </Nav>
                     <Nav className="nav-sign">
                         <Dropdown>
@@ -39,12 +39,10 @@ const Header: React.FC = () => {
                                 <Dropdown.Item style={styleTextInButton} href="#/action-2">UK</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
-                        <Nav.Link>
-                            {isLogin ?
-                                <a href="#" className="nav-link nav-sign-in" onClick={logOut}>Sign Out</a> :
-                                <Link className="nav-link nav-sign-in" to="/login">Sign In</Link>
-                            }
-                        </Nav.Link>
+                        {isLogin ?
+                            <a href="#" className="nav-link nav-sign-in" onClick={logOut}>Sign Out</a> :
+                            <Link className="nav-link nav-sign-in" to="/login">Sign In</Link>
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
