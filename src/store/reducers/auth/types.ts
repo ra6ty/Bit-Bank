@@ -1,9 +1,9 @@
 export interface AuthState {
     auth: {
-        login: () => void,
+        login: (JWTtoken: string) => void,
         logout: () => void,
         token: string,
-        isReady: boolean
+        isReady: boolean,
     }
 }
 
@@ -14,9 +14,8 @@ export enum AuthEnum {
 export interface AddAuthDataAction {
     type: AuthEnum.ADD_AUTH_DATA,
     payload: {
-        token: string, isReady: boolean, login: () => void, logout: () => void
+        token: string, isReady: boolean, login: (JWTtoken: string) => void, logout: () => void
     }
-
 }
 
 export type AuthAction =

@@ -3,6 +3,7 @@ import "./Login.scss"
 import axios from "axios";
 import {Link, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
+import {StoreTypes} from "../../store/reducers/reducers";
 
 const Login = () => {
     const [emailValue, setEmailValue] = useState("")
@@ -11,20 +12,19 @@ const Login = () => {
         text?: string,
         enabled: boolean
     }>({
-        text: "Некорекний Email",
+        text: "Invalid Email",
         enabled: false
     })
     const [errorAuthorization, setErrorAuthorization] = useState(false)
-    const {login, token} = useSelector((state: any) => state.auth)
+    const {login} = useSelector((state: StoreTypes) => state.auth.auth)
     const navigate = useNavigate()
 
-    const ErrorStyle = {
+    const errorStyle = {
         boxShadow: "0 0 5px 2px red",
         borderRadius: "2px"
     };
 
     const sendLogin = (): void => {
-
         setErrorEmail({...errorEmail, enabled: false})
 
         let regForEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
@@ -45,7 +45,6 @@ const Login = () => {
                     setErrorAuthorization(false);
                     navigate("/")
                 }
-
                 if (response.data.status === "an incorrect password") {
                     setErrorAuthorization(true)
                 }
@@ -66,18 +65,18 @@ const Login = () => {
                         <div className="col-md-6 mx-auto">
                             <div className="block">
                                 <h2 className="text-center">Sign In to BitBank</h2>
-                                <form className="text-left clearfix mt-50" action="index.html">
+                                <form className="text-left clearfix mt-50">
                                     <div className="form-group">
-                                        <input type="email" style={errorAuthorization ? ErrorStyle : {}}
+                                        <input type="email" style={errorAuthorization ? errorStyle : {}}
                                                value={emailValue} onChange={event => setEmailValue(event.target.value)}
                                                className="form-control" placeholder="Email"/>
                                         {errorEmail.enabled ? <span>{errorEmail.text}</span> : null}
                                     </div>
                                     <div className="form-group">
-                                        <input type="password" style={errorAuthorization ? ErrorStyle : {}}
+                                        <input type="password" style={errorAuthorization ? errorStyle : {}}
                                                value={passValue} onChange={event => setPassValue(event.target.value)}
                                                className="form-control" placeholder="Password"/>
-                                        {errorAuthorization ? <span>Неправальний пароль або лоін</span> : null}
+                                        {errorAuthorization ? <span>Invalid password or loin</span> : null}
                                     </div>
 
                                     <button type="button" onClick={sendLogin} className="btn btn-main">Sign In</button>

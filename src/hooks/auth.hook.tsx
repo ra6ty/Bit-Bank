@@ -30,7 +30,7 @@ export const useAuth = () => {
         setToken("")
         localStorage.removeItem("userData")
     }
-    return{token,isReady,login,logout}
+    return {token, isReady, login, logout}
 };
 
 

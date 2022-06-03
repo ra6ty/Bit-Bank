@@ -7,13 +7,13 @@ import Footer from "../Footer/Footer";
 import {useAuth} from "../../hooks/auth.hook";
 import {useDispatch} from "react-redux";
 
-const App:React.FC = () => {
+const App: React.FC = () => {
     const dispatch = useDispatch()
-    const {token,isReady,login,logout} = useAuth()
+    const {token, isReady, login, logout} = useAuth()
     const isLogin = !!token
     const routes = useRoutes(isLogin)
 
-    dispatch({type:"ADD_AUTH_DATA",payload:{token,isReady,login,logout}})
+    dispatch({type: "ADD_AUTH_DATA", payload: {token, isReady, login, logout}})
 
     return (
         <div className="App">

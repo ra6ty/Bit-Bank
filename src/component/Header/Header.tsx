@@ -3,10 +3,10 @@ import "./Header.scss"
 import {Navbar, Nav, Container, Dropdown} from 'react-bootstrap';
 import {Link, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {AuthTypes} from "../../store/store";
+import {StoreTypes} from "../../store/reducers/reducers";
 
 const Header: React.FC = () => {
-    const {logout, token} = useSelector((state:AuthTypes) => state.auth)
+    const {token, logout} = useSelector((state: StoreTypes) => state.auth.auth)
     const navigate = useNavigate()
     const isLogin = !!token
 
@@ -22,7 +22,7 @@ const Header: React.FC = () => {
     return (
         <Navbar className="navigation" bg="dark" expand="lg" variant="dark">
             <Container>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="#">
                     <Link to="/"><img className="logo" src="./images/logo.png" alt="logo"/></Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>

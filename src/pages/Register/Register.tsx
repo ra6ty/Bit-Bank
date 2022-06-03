@@ -5,7 +5,6 @@ import {Modal} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 const Register: React.FC = () => {
-
     const [nameValue, setNameValue] = useState("")
     const [phoneValue, setPhoneValue] = useState("")
     const [emailValue, setEmailValue] = useState("")
@@ -16,28 +15,28 @@ const Register: React.FC = () => {
         text?: string,
         enabled: boolean
     }>({
-        text: "Введіть правильне імя",
+        text: "Enter a valid name",
         enabled: false
     })
     const [errorPhone, setErrorPhone] = useState<{
         text?: string,
         enabled: boolean
     }>({
-        text: "Введіть правильний телефон",
+        text: "Enter the correct phone number",
         enabled: false
     })
     const [errorEmail, setErrorEmail] = useState<{
         text?: string,
         enabled: boolean
     }>({
-        text: "Введіть правильний Email",
+        text: "Enter the correct Email",
         enabled: false
     })
     const [errorPass, setErrorPass] = useState<{
         text?: string,
         enabled: boolean
     }>({
-        text: "Введіть правильний пароль який має включати символи'?@#$%*'",
+        text: "Enter a valid password that should include '? @ # $% *'",
         enabled: false
     })
 
@@ -104,10 +103,11 @@ const Register: React.FC = () => {
             <section className="signin-page account">
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Реєстрація успішна!</Modal.Title>
+                        <Modal.Title>Registration successful!</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>Дякуємо вам, що довіряєте нам. Ми все зробим, щоб вам було зручно та приємно з нами
-                        працювати))</Modal.Body>
+                    <Modal.Body>Thank you for trusting us. We will do everything to make you comfortable and pleasant
+                        with us
+                        work))</Modal.Body>
                 </Modal>
                 <div className="container">
                     <div className="row">
@@ -143,7 +143,7 @@ const Register: React.FC = () => {
                                     <button type="button" onClick={sendRegister}
                                             className="btn btn-main text-center">Sign In
                                     </button>
-                                    {emailBusy ? <h5>Такий email вже зайнятий</h5> : null}
+                                    {emailBusy ? <h5>This email is already taken</h5> : null}
                                 </form>
                                 <p className="mt-3">Already have an account? <Link to="/login">Login</Link></p>
                             </div>

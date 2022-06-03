@@ -9,7 +9,7 @@ const defaultState = {
     }
 }
 
-export const authReducer = (state = defaultState, action:AuthAction):AuthState => {
+export const authReducer = (state = defaultState, action: AuthAction): AuthState => {
     switch (action.type) {
         case AuthEnum.ADD_AUTH_DATA:
             return {...state, auth: action.payload}
