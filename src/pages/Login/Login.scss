@@ -1,0 +1,22 @@
+.login {
+  .account {
+    background: #31BB9E;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  p {
+    margin: 0;
+    text-align: center;
+  }
+
+  span {
+    color: red;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0;
+  }
+}
