@@ -5,7 +5,6 @@ import {useSelector} from "react-redux";
 import {StoreTypes} from "../../store/reducers/reducers";
 
 const UserPage: React.FC = () => {
-
     let [userProfileData, setUserProfileData] = useState({
             email: '',
             dc: '',
@@ -14,12 +13,9 @@ const UserPage: React.FC = () => {
         }
     )
     let [requestError, setRequestError] = useState(false)
-
     const {token} = useSelector((state: StoreTypes) => state.auth.auth)
 
-
     useEffect(() => {
-
         axios.get(`https://user-simple.herokuapp.com/auth/getAccountInformation`, {
             headers: {
                 'authorization': token
@@ -31,11 +27,8 @@ const UserPage: React.FC = () => {
                     return
                 }
                 setUserProfileData(res.data)
-
-                console.log(res.data)
             })
     }, [])
-
 
     return (
         <div className="userPage">
@@ -58,12 +51,15 @@ const UserPage: React.FC = () => {
                                 <h2>Page Not Found</h2>
                                 <p>Sorry, there are technical issues, please try again later</p>
                             </div>
-                            : <div className="member col-md-12">
+                            : null}
+                        {userProfileData.fullName.length > 1 ?
+                            <div className="member col-md-12">
                                 <p><span>Name:</span> {userProfileData?.fullName}</p>
                                 <p><span>Email:</span> {userProfileData?.email}</p>
                                 <p><span>Phone:</span> {userProfileData?.phone}</p>
                                 <p><span>Date of registration:</span> {userProfileData?.dc.split("", 10)}</p>
-                            </div>}
+                            </div> : null
+                        }
                     </div>
                 </div>
             </section>
