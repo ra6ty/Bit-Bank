@@ -4,10 +4,12 @@ import axios from "axios";
 import {Link, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {StoreTypes} from "../../store/reducers/reducers";
+import Loader from "../../component/Loader/Loader";
 
 const Login = () => {
     const [emailValue, setEmailValue] = useState("")
     const [passValue, setPassValue] = useState("")
+    const [loading,setLoading] = useState(false)
     const [errorEmail, setErrorEmail] = useState<{
         text?: string,
         enabled: boolean
@@ -25,6 +27,7 @@ const Login = () => {
     };
 
     const sendLogin = (): void => {
+        setLoading(true)
         setErrorEmail({...errorEmail, enabled: false})
 
         let regForEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
@@ -53,6 +56,7 @@ const Login = () => {
                 }
                 setEmailValue("")
                 setPassValue("")
+                setLoading(false)
             })
     }
 
@@ -60,6 +64,7 @@ const Login = () => {
         <div className="login">
             <section className="signin-page account">
                 <div className="container">
+                    {loading ?  <Loader/> :null}
                     <div className="row">
                         <div className="col-md-6 mx-auto">
                             <div className="block">

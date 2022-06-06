@@ -3,12 +3,14 @@ import "./Register.scss"
 import axios from 'axios';
 import {Modal} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import Loader from "../../component/Loader/Loader";
 
 const Register: React.FC = () => {
     const [nameValue, setNameValue] = useState("")
     const [phoneValue, setPhoneValue] = useState("")
     const [emailValue, setEmailValue] = useState("")
     const [passValue, setPassValue] = useState("")
+    const [loading,setLoading] = useState(false)
     const [show, setShow] = useState(false);
     const [emailBusy, setEmailBusy] = useState(false)
     const [errorName, setErrorName] = useState<{
@@ -47,6 +49,7 @@ const Register: React.FC = () => {
     };
 
     const sendRegister = (): void => {
+        setLoading(true)
         setErrorName({...errorName, enabled: false})
         setErrorPhone({...errorPhone, enabled: false})
         setErrorEmail({...errorEmail, enabled: false})
@@ -72,6 +75,7 @@ const Register: React.FC = () => {
 
         if (!regForPass.test(passValue)) {
             setErrorPass({...errorPass, enabled: true})
+            setLoading(false)
             return
         }
 
@@ -89,9 +93,11 @@ const Register: React.FC = () => {
                     setPhoneValue("")
                     setEmailValue("")
                     setPassValue("")
+                    setLoading(false)
                 }
                 if (response.data.status === "email is used") {
                     setEmailBusy(true)
+                    setLoading(false)
                 }
             })
     }
@@ -110,6 +116,7 @@ const Register: React.FC = () => {
                         work))</Modal.Body>
                 </Modal>
                 <div className="container">
+                    {loading ?  <Loader/> :null}
                     <div className="row">
                         <div className="col-md-6 mx-auto">
                             <div className="block text-center">
