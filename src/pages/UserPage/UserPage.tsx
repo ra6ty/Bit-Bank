@@ -43,24 +43,27 @@ const UserPage: React.FC = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col">
-                            <div className="title text-center">
-                                <h2>Our Account</h2>
-                                <span className="border"></span>
-                            </div>
+                            {requestError
+                                ? null
+                                : <div className="title text-center">
+                                    <h2>Our Account</h2>
+                                    <span className="border"></span>
+                                </div>}
                         </div>
                     </div>
                     <div className="row">
-                        <div className="member col-md-6">
-                            <h3>Name:{userProfileData?.fullName}</h3>
-                            <p>Email:{userProfileData?.email}</p>
-                            <p>Phone:{userProfileData?.phone}</p>
-                            <p>Date of registration:{userProfileData?.dc}</p>
-                        </div>
-                        <div className="member video col-md-6">
-                            <div className="video-player">
-                                <iframe src="https://www.youtube.com/embed/MJGqmleOxLk"/>
+                        {requestError
+                            ? <div className="col-md-12 text-center page-404">
+                                <h1>404</h1>
+                                <h2>Page Not Found</h2>
+                                <p>Sorry, there are technical issues, please try again later</p>
                             </div>
-                        </div>
+                            : <div className="member col-md-12">
+                                <p><span>Name:</span> {userProfileData?.fullName}</p>
+                                <p><span>Email:</span> {userProfileData?.email}</p>
+                                <p><span>Phone:</span> {userProfileData?.phone}</p>
+                                <p><span>Date of registration:</span> {userProfileData?.dc.split("", 10)}</p>
+                            </div>}
                     </div>
                 </div>
             </section>

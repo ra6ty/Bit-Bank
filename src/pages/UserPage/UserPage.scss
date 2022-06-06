@@ -20,12 +20,13 @@
 
 .member {
   padding: 2rem;
-  & h3 {
-    font-size: 52px;
-  }
   & p {
     margin: 0.4rem 0;
     font-size: 38px;
+  }
+  span {
+    font-weight: bold;
+    font-size: 43px;
   }
 }
 
