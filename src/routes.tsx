@@ -4,6 +4,7 @@ import Main from "./pages/Main/Main";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import UserPage from "./pages/UserPage/UserPage";
+import NotFound from "./pages/notFound/notFound";
 
 export const useRoutes = (isAuth: boolean) => {
 
@@ -11,6 +12,7 @@ export const useRoutes = (isAuth: boolean) => {
         return (
             <Routes>
                 <Route path="/" element={< UserPage/>}/>
+                <Route path="*" element={<NotFound/>}/>
             </Routes>
 
         )
@@ -20,6 +22,7 @@ export const useRoutes = (isAuth: boolean) => {
                 <Route path="/" element={< Main/>}/>
                 <Route path="/register" element={< Register/>}/>
                 <Route path="/login" element={< Login/>}/>
+                <Route path="*" element={<NotFound/>}/>
             </Routes>
         )
     }
