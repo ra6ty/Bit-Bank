@@ -1,0 +1,36 @@
+.userPage {
+  padding: 2rem;
+  font-family: "Playfair Display", serif;
+  color: white;
+  background-color: #31BB9E;
+  & h2 {
+    font-size: 60px;
+  }
+}
+
+.border {
+  display: inline-block;
+  height: 6px;
+  position: relative;
+  width: 90px;
+  background: white;
+  border-color: white;
+  margin-bottom: 2rem;
+}
+
+.member {
+  padding: 2rem;
+  & p {
+    margin: 0.4rem 0;
+    font-size: 38px;
+  }
+  span {
+    font-weight: bold;
+    font-size: 43px;
+  }
+}
+
+.video iframe {
+  width: 100%;
+  height: 300px;
+}
