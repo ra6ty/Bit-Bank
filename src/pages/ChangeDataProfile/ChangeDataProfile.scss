@@ -1,0 +1,44 @@
+.changeDataProfile{
+  padding: 2rem;
+  font-family: "Roboto", serif;
+  color: white;
+  background-color: #31BB9E;
+  min-height: 600px;
+  & h2 {
+    font-size: 60px;
+    font-family: "Playfair Display", serif;
+  }
+  & h3 {
+    font-size: 40px;
+  }
+  & .form-control{
+    border: none;
+    box-shadow: none;
+    color: #2B2B31;
+  }
+}
+.col-md-6{
+  padding: 3rem;
+}
+.validation {
+  color: rgba(255, 55, 55, 0.93);
+  font-size: 24px;
+  margin: 0.7rem auto 0;
+  width: fit-content;
+  font-family: "Playfair Display", serif;
+  background-color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+.btm-changeDataProfile  {
+  background-color: white;
+  color:#31BB9E;
+  font-weight: bold;
+  font-family: "Playfair Display", serif;
+  &:hover {
+    background-color: #31BB9E;
+    border: 2px solid white;
+  }
+}

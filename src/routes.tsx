@@ -5,6 +5,7 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import UserPage from "./pages/UserPage/UserPage";
 import NotFound from "./pages/notFound/notFound";
+import ChangeDataProfile from "./pages/ChangeDataProfile/ChangeDataProfile";
 
 export const useRoutes = (isAuth: boolean) => {
 
@@ -13,6 +14,7 @@ export const useRoutes = (isAuth: boolean) => {
             <Routes>
                 <Route path="/" element={< UserPage/>}/>
                 <Route path="*" element={<NotFound/>}/>
+                <Route path="/account-setting" element={<ChangeDataProfile/>}/>
             </Routes>
 
         )
