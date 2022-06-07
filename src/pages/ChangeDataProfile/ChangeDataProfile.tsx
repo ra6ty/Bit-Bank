@@ -17,7 +17,7 @@ const ChangeDataProfile = () => {
     const [incorrectPasswordValidation, setIncorrectPasswordValidation] = useState(false)
     const [nameValidation, setNameValidation] = useState(false)
 
-    const changePassword = () => {
+    const changePassword = ():void => {
         let validationForPass = /^[а-яА-ЯёЁa-zA-Z0-9]+$/
 
         if (!validationForPass.test(newPasswordFromInput)) {
@@ -50,7 +50,7 @@ const ChangeDataProfile = () => {
         }
     }
 
-    const changeName = () => {
+    const changeName = ():void => {
         if (nameFromInput.length > 3) {
             axios.post(`https://user-simple.herokuapp.com/auth/changeAccountName`, {
                 "name": nameFromInput
