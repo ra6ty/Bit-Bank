@@ -13,12 +13,15 @@ const ChangeDataProfile = () => {
     const {token} = useSelector((state: StoreTypes) => state.auth.auth)
     const [modalNameSuccess, setModalNameSuccess] = useState(false)
     const [modalPasswordSuccess, setModalPasswordSuccess] = useState(false)
-    const [PasswordValidation, setPasswordValidation] = useState(false)
+    const [passwordValidation, setPasswordValidation] = useState(false)
+    const [nameValidation, setNameValidation] = useState(false)
 
     const changePassword = () => {
-        if (oldPasswordFromInput ) {
+        let validationForPass = /^[а-яА-ЯёЁa-zA-Z0-9]+$/
+
+        if (!validationForPass.test(newPasswordFromInput)) {
             axios.post(`https://user-simple.herokuapp.com/auth/changeAccountPassword`, {
-                "oldPassword" :oldPasswordFromInput,
+                "oldPassword": oldPasswordFromInput,
                 "newPassword": newPasswordFromInput
             }, {
                 headers: {
@@ -41,25 +44,29 @@ const ChangeDataProfile = () => {
                 })
         } else {
             setPasswordValidation(true)
-            return
         }
     }
 
     const changeName = () => {
-        axios.post(`https://user-simple.herokuapp.com/auth/changeAccountName`, {
-            "name": nameFromInput
-        }, {
-            headers: {
-                'authorization': token
-            },
-        })
-            .then(res => {
-                if (res.data.status === "ok") {
-                    setShow(true)
-                    setNameFromInput("")
-                    setModalNameSuccess(true)
-                }
+        if (nameFromInput.length > 3) {
+            axios.post(`https://user-simple.herokuapp.com/auth/changeAccountName`, {
+                "name": nameFromInput
+            }, {
+                headers: {
+                    'authorization': token
+                },
             })
+                .then(res => {
+                    if (res.data.status === "ok") {
+                        setShow(true)
+                        setNameFromInput("")
+                        setModalNameSuccess(true)
+                        setNameValidation(false)
+                    }
+                })
+        } else {
+            setNameValidation(true)
+        }
     }
 
     const validationStyle = {
@@ -93,27 +100,28 @@ const ChangeDataProfile = () => {
                 <div className="row">
                     <div className="col-md-6">
                         <h3>Change Account Name</h3>
-                        <input type="text" value={nameFromInput}
+                        <input type="text" value={nameFromInput} style={nameValidation ? validationStyle : {}}
                                onChange={event => setNameFromInput(event.target.value)}
                                className="form-control mt-4" placeholder="New Account Name"/>
                         <button type="button" onClick={changeName} className="btn btn-main btm-changeDataProfile">Change
                             Name
                         </button>
+                        {nameValidation ? <p className="validation">Enter a valid name</p> : null}
                     </div>
                     <div className="col-md-6">
                         <h3>Change Account Password</h3>
-                        <input type="text" value={oldPasswordFromInput}
-                               style={PasswordValidation ? validationStyle : {}}
+                        <input type="password" value={oldPasswordFromInput}
+                               style={passwordValidation ? validationStyle : {}}
                                onChange={event => setOldPasswordFromInput(event.target.value)}
                                className="form-control mt-4" placeholder="Old Password"/>
-                        <input type="text" value={newPasswordFromInput}
-                               style={PasswordValidation ? validationStyle : {}}
+                        <input type="password" value={newPasswordFromInput}
+                               style={passwordValidation ? validationStyle : {}}
                                onChange={event => setNewPasswordFromInput(event.target.value)}
                                className="form-control mt-3" placeholder="New Password"/>
                         <button type="button" onClick={changePassword}
                                 className="btn btn-main btm-changeDataProfile">Change Password
                         </button>
-                        {PasswordValidation ? <p className="validation">Passwords not converge</p> : null}
+                        {passwordValidation ? <p className="validation">Passwords not converge</p> : null}
                     </div>
                 </div>
             </section>
