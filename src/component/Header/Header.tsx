@@ -29,6 +29,7 @@ const Header: React.FC = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="nav-menu">
                         {!isLogin ? "" : <Link className="nav-link nav-main" to="/">Home</Link>}
+                        {!isLogin ? "" : <Link className="nav-link nav-main" to="/account-setting">Account Setting</Link>}
                     </Nav>
                     <Nav className="nav-sign">
                         <Dropdown>

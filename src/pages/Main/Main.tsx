@@ -4,7 +4,8 @@ import "./Main.scss"
 const Main: React.FC = () => {
 
     const heroAreaStyle = {
-        background: "linear-gradient( rgba(255, 255, 255, 0.01),rgba(0, 0, 0, 0.7) ), url(./images/slider-bg-2.jpg)"
+        background: "linear-gradient( rgba(255, 255, 255, 0.01),rgba(0, 0, 0, 0.7) ), url(./images/main-bg.jpeg)",
+        backgroundPosition: "center center"
     };
 
     return (
@@ -191,7 +192,7 @@ const Main: React.FC = () => {
                         <article className="col-12 col-md-6">
                             <div className="post-item">
                                 <div className="post-thumb">
-                                    <img className="img-fluid shadow rounded" src="./images/slider-bg-2.jpg"
+                                    <img className="img-fluid shadow rounded" src="./images/main-bg.jpeg"
                                          alt="Generic placeholder image"/>
                                 </div>
                                 <div className="post-title">
@@ -221,7 +222,7 @@ const Main: React.FC = () => {
                         <article className="col-12 col-md-6">
                             <div className="post-item">
                                 <div className="post-thumb">
-                                    <img className="img-fluid shadow rounded" src="./images/slider-bg-2.jpg"
+                                    <img className="img-fluid shadow rounded" src="./images/main-bg.jpeg"
                                          alt="Generic placeholder image"/>
                                 </div>
                                 <div className="post-title">
