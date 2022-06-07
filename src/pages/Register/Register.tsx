@@ -10,7 +10,7 @@ const Register: React.FC = () => {
     const [phoneValue, setPhoneValue] = useState("")
     const [emailValue, setEmailValue] = useState("")
     const [passValue, setPassValue] = useState("")
-    const [loading,setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [show, setShow] = useState(false);
     const [emailBusy, setEmailBusy] = useState(false)
     const [errorName, setErrorName] = useState<{
@@ -116,7 +116,7 @@ const Register: React.FC = () => {
                         work))</Modal.Body>
                 </Modal>
                 <div className="container">
-                    {loading ?  <Loader/> :null}
+                    {loading ? <Loader/> : null}
                     <div className="row">
                         <div className="col-md-6 mx-auto">
                             <div className="block text-center">

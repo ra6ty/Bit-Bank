@@ -14,6 +14,7 @@ const ChangeDataProfile = () => {
     const [modalNameSuccess, setModalNameSuccess] = useState(false)
     const [modalPasswordSuccess, setModalPasswordSuccess] = useState(false)
     const [passwordValidation, setPasswordValidation] = useState(false)
+    const [incorrectPasswordValidation, setIncorrectPasswordValidation] = useState(false)
     const [nameValidation, setNameValidation] = useState(false)
 
     const changePassword = () => {
@@ -35,6 +36,7 @@ const ChangeDataProfile = () => {
                         setNewPasswordFromInput("")
                         setModalPasswordSuccess(true)
                         setPasswordValidation(false)
+                        setIncorrectPasswordValidation(false)
                     }
                     if (res.data.status === "an incorrect old password") {
                         setOldPasswordFromInput("")
@@ -43,7 +45,7 @@ const ChangeDataProfile = () => {
                     }
                 })
         } else {
-            setPasswordValidation(true)
+            setIncorrectPasswordValidation(true)
         }
     }
 
@@ -111,17 +113,18 @@ const ChangeDataProfile = () => {
                     <div className="col-md-6">
                         <h3>Change Account Password</h3>
                         <input type="password" value={oldPasswordFromInput}
-                               style={passwordValidation ? validationStyle : {}}
+                               style={passwordValidation || incorrectPasswordValidation ? validationStyle : {}}
                                onChange={event => setOldPasswordFromInput(event.target.value)}
                                className="form-control mt-4" placeholder="Old Password"/>
                         <input type="password" value={newPasswordFromInput}
-                               style={passwordValidation ? validationStyle : {}}
+                               style={passwordValidation || incorrectPasswordValidation ? validationStyle : {}}
                                onChange={event => setNewPasswordFromInput(event.target.value)}
                                className="form-control mt-3" placeholder="New Password"/>
                         <button type="button" onClick={changePassword}
                                 className="btn btn-main btm-changeDataProfile">Change Password
                         </button>
                         {passwordValidation ? <p className="validation">Passwords not converge</p> : null}
+                        {incorrectPasswordValidation ? <p className="validation">Incorrect new password</p> : null}
                     </div>
                 </div>
             </section>

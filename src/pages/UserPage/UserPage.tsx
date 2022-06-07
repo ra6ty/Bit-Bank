@@ -15,7 +15,7 @@ const UserPage: React.FC = () => {
     )
     let [requestError, setRequestError] = useState(false)
     const {token} = useSelector((state: StoreTypes) => state.auth.auth)
-    const [loading,setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         setLoading(true)
@@ -36,7 +36,7 @@ const UserPage: React.FC = () => {
 
     return (
         <div className="userPage">
-            {loading ?  <Loader/> :null}
+            {loading ? <Loader/> : null}
             <section className="team section" id="team">
                 <div className="container">
                     <div className="row">
@@ -44,7 +44,7 @@ const UserPage: React.FC = () => {
                             {!loading ? <div className="title text-center">
                                 <h2>Our Account</h2>
                                 <span className="border"></span>
-                            </div> :null}
+                            </div> : null}
                         </div>
                     </div>
                     <div className="row">
