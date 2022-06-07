@@ -42,6 +42,7 @@ const ChangeDataProfile = () => {
                         setOldPasswordFromInput("")
                         setNewPasswordFromInput("")
                         setPasswordValidation(true)
+                        setIncorrectPasswordValidation(false)
                     }
                 })
         } else {
