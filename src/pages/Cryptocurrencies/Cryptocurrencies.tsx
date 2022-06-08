@@ -8,22 +8,14 @@ import Loader from "../../component/Loader/Loader";
 
 const Cryptocurrencies: React.FC = () => {
     const [currency, setCurrency] = useState("USD")
-    const {token} = useSelector((state: StoreTypes) => state.auth.auth)
     let [responseCryptocurrency, setResponseCryptocurrency] = useState([{id: '', name: '', symbol: '', price: ''}])
     const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(false)
 
-    const changeCurrencyUSD = (): void => {
-        setCurrency("")
-        setCurrency("USD")
-    }
-    const changeCurrencyUAH = (): void => {
-        setCurrency("")
-        setCurrency("UAH")
-    }
-    const changeCurrencyEUR = (): void => {
-        setCurrency("")
-        setCurrency("EUR")
+    const {token} = useSelector((state: StoreTypes) => state.auth.auth)
+
+    const changeCurrency = (cur: string):void => {
+        setCurrency(cur)
     }
 
     const checkedCurrency = {
@@ -36,12 +28,11 @@ const Cryptocurrencies: React.FC = () => {
         setLoading(true)
         axios.get(`https://user-simple.herokuapp.com/crypto/list`,
             {
-                params: {'currency': currency},
+                params: {currency},
                 headers: {'authorization': token}
             })
             .then(res => {
                 if (res.data.list.length > 3) {
-                    setResponseCryptocurrency([])
                     setResponseCryptocurrency(res.data.list)
                     setLoading(false)
                 } else {
@@ -78,16 +69,16 @@ const Cryptocurrencies: React.FC = () => {
                             <ul className="nav nav-pills mb-6 pricing-tab justify-content-center" id="pills-tab"
                                 role="tablist">
                                 <li className="nav-item">
-                                    <a className="nav-link" style={currency === "USD" ? checkedCurrency : {}}
-                                       onClick={changeCurrencyUSD}>USD</a>
+                                    <a className="nav-link" href="#" style={currency === "USD" ? checkedCurrency : {}}
+                                       onClick={() => changeCurrency("USD")}>USD</a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" style={currency === "UAH" ? checkedCurrency : {}}
-                                       onClick={changeCurrencyUAH} href="#">UAH</a>
+                                       onClick={() => changeCurrency("UAH")} href="#">UAH</a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" style={currency === "EUR" ? checkedCurrency : {}}
-                                       onClick={changeCurrencyEUR} href="#">EUR</a>
+                                       onClick={() => changeCurrency("EUR")} href="#">EUR</a>
                                 </li>
                             </ul>
                             {loading ? <Loader/> : null}
@@ -106,9 +97,9 @@ const Cryptocurrencies: React.FC = () => {
                                                     <h3>{el.symbol}</h3>
                                                     <div className="pricing-body">
                                                         <div className="price">
-                                                            {currency === "USD" ? <span> <p>$</p> </span> : null}
-                                                            {currency === "UAH" ? <span> <p>₴</p> </span> : null}
-                                                            {currency === "EUR" ? <span><p>€</p> </span> : null}
+                                                            {currency === "USD" ? <span> <p>$</p> </span> :
+                                                                currency === "UAH" ? <span> <p>₴</p> </span> :
+                                                                    currency === "EUR" ? <span><p>€</p> </span> : null}
                                                             <span>{el.price}</span>
                                                         </div>
                                                         <div className="progress" data-percent="45%">
