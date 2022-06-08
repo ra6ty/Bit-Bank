@@ -13,15 +13,15 @@ const Cryptocurrencies: React.FC = () => {
     const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(false)
 
-    const changeCurrencyUSD = () => {
+    const changeCurrencyUSD = (): void => {
         setCurrency("")
         setCurrency("USD")
     }
-    const changeCurrencyUAH = () => {
+    const changeCurrencyUAH = (): void => {
         setCurrency("")
         setCurrency("UAH")
     }
-    const changeCurrencyEUR = () => {
+    const changeCurrencyEUR = (): void => {
         setCurrency("")
         setCurrency("EUR")
     }
@@ -109,7 +109,7 @@ const Cryptocurrencies: React.FC = () => {
                                                             {currency === "USD" ? <span> <p>$</p> </span> : null}
                                                             {currency === "UAH" ? <span> <p>₴</p> </span> : null}
                                                             {currency === "EUR" ? <span><p>€</p> </span> : null}
-                                                             <span>{el.price}</span>
+                                                            <span>{el.price}</span>
                                                         </div>
                                                         <div className="progress" data-percent="45%">
                                                             <div className="progress-bar"></div>
