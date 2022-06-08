@@ -6,6 +6,7 @@ import Login from "./pages/Login/Login";
 import UserPage from "./pages/UserPage/UserPage";
 import NotFound from "./pages/notFound/notFound";
 import ChangeDataProfile from "./pages/ChangeDataProfile/ChangeDataProfile";
+import Cryptocurrencies from "./pages/Cryptocurrencies/Cryptocurrencies";
 
 export const useRoutes = (isAuth: boolean) => {
 
@@ -15,6 +16,7 @@ export const useRoutes = (isAuth: boolean) => {
                 <Route path="/" element={< UserPage/>}/>
                 <Route path="*" element={<NotFound/>}/>
                 <Route path="/account-setting" element={<ChangeDataProfile/>}/>
+                <Route path="/cryptocurrencies" element={<Cryptocurrencies/>}/>
             </Routes>
 
         )

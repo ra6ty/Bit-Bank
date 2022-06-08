@@ -1,0 +1,149 @@
+.cryptocurrencies {
+  padding: 2rem 0;
+  min-height: 600px;
+
+  .pricing-table .pricing-tab {
+    text-align: center;
+    border: 1px solid #31BB9E;
+    display: inline-block;
+    padding: 2px;
+    margin-bottom: 50px;
+  }
+
+  h5 {
+    color: #848484;
+    margin: 1rem auto;
+  }
+
+  p {
+    color: #848484;
+    margin: 0 auto;
+    font-size: 3rem;
+  }
+
+  .border {
+    background-color: #31BB9E;
+    border: #31BB9E 1px solid;
+    margin-bottom: 0;
+  }
+
+  h4 {
+    font-family: "Playfair Display", serif;
+    font-size: 10px;
+    line-height: 10px;
+    font-weight: 700;
+    letter-spacing: 3.3px;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 35px;
+    color: #232323;
+    text-transform: capitalize;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .pricing-table .pricing-tab li {
+    display: inline-block;
+  }
+
+  .pricing-table .pricing-tab li a {
+    padding: 10px 30px;
+    color: #555;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .pricing-table .pricing-tab li .active {
+    background: #31BB9E;
+    border-radius: 0;
+    color: white;
+  }
+
+  .pricing-table .pricing-item {
+    margin-bottom: 30px;
+    border-radius: 3px;
+    padding: 0 0px 20px;
+    text-align: center;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.09);
+  }
+
+  .pricing-table .pricing-item a.btn-main,
+  .pricing-table .pricing-item a.btn-main-sm {
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+
+  .pricing-table .pricing-item h3 {
+    color: #fff;
+    font-size: 16px;
+    padding: 15px;
+    background: #31BB9E;
+    font-weight: bold;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .pricing-table .pricing-item .price {
+    font-size: 50px;
+    font-weight: bold;
+    color: #222222;
+    margin-bottom: 20px;
+
+    p {
+      margin-right: 0.2rem;
+      color: #31BB9E;
+    }
+  }
+
+  .pricing-table .pricing-item .price span {
+    display: inline-block;
+  }
+
+  .pricing-table .pricing-item .price .sup {
+    top: -20px;
+    font-weight: 300;
+    font-size: 20px;
+    position: relative;
+  }
+
+  .pricing-table .pricing-item .progress {
+    margin-bottom: 25px;
+    height: 3px;
+  }
+
+  .pricing-table .pricing-item .progress .progress-bar {
+    background: #31BB9E;
+  }
+
+  .pricing-table .pricing-item .btn-main,
+  .pricing-table .pricing-item .btn-main-sm {
+    border-radius: 50px;
+  }
+
+  .pricing-table .pricing-item .pricing-body {
+    padding: 30px;
+  }
+
+  .custom-pricing {
+    margin-bottom: 30px;
+    margin-top: 50px;
+  }
+
+  .custom-pricing p {
+    margin-bottom: 5px;
+  }
+
+  .custom-pricing a {
+    color: #31BB9E;
+  }
+
+  .custom-pricing-form h3 {
+    margin-bottom: 20px;
+  }
+
+  .row {
+    justify-content: center;
+  }
+}

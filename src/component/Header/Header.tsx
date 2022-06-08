@@ -30,6 +30,7 @@ const Header: React.FC = () => {
                     <Nav className="nav-menu">
                         {!isLogin ? "" : <Link className="nav-link nav-main" to="/">Home</Link>}
                         {!isLogin ? "" : <Link className="nav-link nav-main" to="/account-setting">Account Setting</Link>}
+                        {!isLogin ? "" : <Link className="nav-link nav-main" to="/cryptocurrencies">Cryptocurrencies</Link>}
                     </Nav>
                     <Nav className="nav-sign">
                         <Dropdown>
@@ -37,7 +38,7 @@ const Header: React.FC = () => {
                                 EN
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
-                                <Dropdown.Item style={styleTextInButton} href="#/action-2">UK</Dropdown.Item>
+                                <Dropdown.Item style={styleTextInButton} href="#">UK</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                         {isLogin ?
