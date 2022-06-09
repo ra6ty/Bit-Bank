@@ -1,7 +1,24 @@
 import React from 'react';
 import "./Main.scss"
+import styled, {keyframes} from 'styled-components';
+import {bounce, bounceInLeft, zoomInDown} from 'react-animations';
 
 const Main: React.FC = () => {
+
+    const bounceInLeftAnimation = keyframes`${bounceInLeft}`;
+    const BounceInLeftDiv = styled.div`
+      animation: 3s ${bounceInLeftAnimation};
+    `;
+
+    const bounceAnimation = keyframes`${bounce}`;
+    const BouncyDiv = styled.div`
+      animation: 2s ${bounceAnimation};
+    `;
+
+    const zoomInDownAnimation = keyframes`${zoomInDown}`;
+    const ZoomInDownDiv = styled.div`
+      animation: 2s ${zoomInDownAnimation};
+    `;
 
     const heroAreaStyle = {
         background: "linear-gradient( rgba(255, 255, 255, 0.01),rgba(0, 0, 0, 0.7) ), url(./images/main-bg.jpeg)",
@@ -14,9 +31,9 @@ const Main: React.FC = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6 align-self-center mb-4 mb-lg-0">
-                            <div className="video-player">
+                            <ZoomInDownDiv className="video-player">
                                 <iframe src="https://www.youtube.com/embed/MJGqmleOxLk"/>
-                            </div>
+                            </ZoomInDownDiv>
                         </div>
                         <div className="col-lg-6">
                             <div className="block">
@@ -34,7 +51,7 @@ const Main: React.FC = () => {
                 </div>
             </section>
             <section className="counter section-sm">
-                <div className="container">
+                <BounceInLeftDiv className="container">
                     <div className="row">
                         <div className="col-md-3 col-3">
                             <div className="counters-item">
@@ -61,7 +78,7 @@ const Main: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </BounceInLeftDiv>
             </section>
             <section className="about section bg-gray" id="about">
                 <div className="container">
@@ -87,7 +104,7 @@ const Main: React.FC = () => {
             </section>
             <section className="services section-xs" id="services">
                 <div className="container">
-                    <div className="row">
+                    <BouncyDiv className="row">
                         <div className="col-md-4 col-sm-6 col-xs-12">
                             <div className="service-block color-bg text-center">
                                 <div className="service-icon text-center">
@@ -119,7 +136,7 @@ const Main: React.FC = () => {
                                     id tellus. Nullam iaculis arcu at mauris dapibus consectetur.</p>
                             </div>
                         </div>
-                    </div>
+                    </BouncyDiv>
                 </div>
             </section>
             <section className="service-2 section bg-gray">
