@@ -1,20 +1,24 @@
 import React, {useEffect, useState} from 'react';
 import "./Cryptocurrencies.scss"
 import axios from "axios";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {StoreTypes} from "../../store/reducers/reducers";
 import {Modal} from "react-bootstrap";
 import Loader from "../../component/Loader/Loader";
+import {Link} from "react-router-dom";
+import {changeCurrencyAction} from "../../store/reducers/currency/currency";
 
 const Cryptocurrencies: React.FC = () => {
     const [currency, setCurrency] = useState("USD")
     let [responseCryptocurrency, setResponseCryptocurrency] = useState([{id: '', name: '', symbol: '', price: ''}])
     const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(false)
-
+    const dispatch = useDispatch()
     const {token} = useSelector((state: StoreTypes) => state.auth.auth)
 
-    const changeCurrency = (cur: string):void => {
+    dispatch(changeCurrencyAction(currency))
+
+    const changeCurrency = (cur: string): void => {
         setCurrency(cur)
     }
 
@@ -84,7 +88,6 @@ const Cryptocurrencies: React.FC = () => {
                             {loading ? <Loader/> : null}
                         </div>
                     </div>
-
                     <div className="row">
                         <div className="col-md-12">
                             <div className="tab-content">
@@ -106,7 +109,9 @@ const Cryptocurrencies: React.FC = () => {
                                                             <div className="progress-bar"></div>
                                                         </div>
                                                         <p>{el.name}</p>
-                                                        <a className="btn btn-main" href="#">Buy</a>
+                                                        <Link to={"/cryptocurrencies/" + el.id} className="btn btn-main"
+                                                              type="button">
+                                                            <span>Check</span></Link>
                                                     </div>
                                                 </div>
                                             </div>

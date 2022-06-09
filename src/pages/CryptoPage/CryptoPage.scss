@@ -1,0 +1,74 @@
+.cryptoPage {
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Roboto", serif;
+  color: #F7F7F7;
+  background-color: #31BB9E;
+
+  & h2 {
+    font-size: 60px;
+    font-family: "Playfair Display", serif;
+  }
+
+  .symbol {
+    padding: 1rem;
+    background-color: #F7F7F7;
+    color: #31BB9E;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+  }
+
+  p {
+    font-size: 50px;
+    font-family: "Playfair Display", serif;
+    display: flex;
+    justify-content: center;
+
+    & span {
+      color: #186e5a;
+      line-height: 1.3;
+      font-weight: bold;
+      margin: 0 10px;
+    }
+  }
+
+  .border {
+    background-color: #F7F7F7;
+    border: #F7F7F7 1px solid;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-right: 0.2rem;
+    color: #F7F7F7;
+  }
+
+  ul {
+    padding: 2rem;
+    list-style: none;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: 2px solid #F7F7F7;
+
+    & li {
+      font-size: 30px;
+
+      &:nth-child(2) {
+        display: none;
+      }
+
+      & span {
+        font-size: 20px;
+        color: #222222;
+      }
+    }
+  }
+}
+
+
+
