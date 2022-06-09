@@ -45,7 +45,7 @@ const CryptoPage = () => {
         color: "green",
     }
 
-    let CoinPercentEmptyArray: [{
+    let coinPercentEmptyArray: [{
         name: string,
         count: string
     }] = [{
@@ -53,45 +53,37 @@ const CryptoPage = () => {
         count: ""
     }]
 
-    let CoinPercent: {
-        percent_change_1h: string,
-        percent_change_7d: string,
-        percent_change_24h: string,
-        percent_change_30d: string,
-        percent_change_60d: string,
-    } = responseCoin
-
-    let CoinPercentArray = Object.keys(CoinPercent)
+    Object.keys(responseCoin)
         .map(function (key: string) {
             switch (key) {
                 case "percent_change_1h":
-                    CoinPercentEmptyArray.push({
+                    coinPercentEmptyArray.push({
                         name: "Change 1 hour",
-                        count: CoinPercent[key]
+                        count: responseCoin[key]
                     })
                     break;
                 case "percent_change_24h":
-                    CoinPercentEmptyArray.push({
+                    coinPercentEmptyArray.push({
                         name: "Change 24 hour",
-                        count: CoinPercent[key]
+                        count: responseCoin[key]
                     })
                     break;
                 case "percent_change_7d":
-                    CoinPercentEmptyArray.push({
+                    coinPercentEmptyArray.push({
                         name: "Change 7 days",
-                        count: CoinPercent[key]
+                        count: responseCoin[key]
                     })
                     break;
                 case "percent_change_30d":
-                    CoinPercentEmptyArray.push({
+                    coinPercentEmptyArray.push({
                         name: "Change 30 days",
-                        count: CoinPercent[key]
+                        count: responseCoin[key]
                     })
                     break;
                 case "percent_change_60d":
-                    CoinPercentEmptyArray.push({
+                    coinPercentEmptyArray.push({
                         name: "Change 60 days",
-                        count: CoinPercent[key]
+                        count: responseCoin[key]
                     })
                     break;
                 default :
@@ -116,13 +108,15 @@ const CryptoPage = () => {
                         <div className="col-md-12 text-center">
                             <ul>
                                 <li className="symbol">{responseCoin.symbol}</li>
-                                {CoinPercentEmptyArray.map((el: {
+                                {coinPercentEmptyArray.map((el: {
                                     name: string,
                                     count: string
                                 }) => {
                                     return <li key={el.name}>{el.name}<br/>
-                                        <span
-                                            style={el.count[0] === "-" ? colorRedStyle : colorGreenStyle}>{el.count}%</span>
+                                        {el.count.length ?
+                                            <span
+                                                style={el.count[0] === "-" ? colorRedStyle : colorGreenStyle}>{el.count}%</span>
+                                            : null}
                                     </li>
                                 })}
                             </ul>

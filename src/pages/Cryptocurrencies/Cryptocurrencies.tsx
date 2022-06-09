@@ -94,7 +94,7 @@ const Cryptocurrencies: React.FC = () => {
                                 <div className="tab-pane fade show active"
                                      aria-labelledby="pills-home-tab">
                                     <div className="row">
-                                        {responseCryptocurrency.length > 3 ? responseCryptocurrency.map((el) => {
+                                        {responseCryptocurrency.length > 3 ? responseCryptocurrency.map((el, index) => {
                                             return <div key={el.id} className="col-md-4 col-sm-6 col-xs-12">
                                                 <div className="pricing-item">
                                                     <h3>{el.symbol}</h3>
@@ -109,7 +109,8 @@ const Cryptocurrencies: React.FC = () => {
                                                             <div className="progress-bar"></div>
                                                         </div>
                                                         <p>{el.name}</p>
-                                                        <Link to={"/cryptocurrencies/" + el.id} className="btn btn-main"
+                                                        <Link to={"/cryptocurrencies/" + (index + 1)}
+                                                              className="btn btn-main"
                                                               type="button">
                                                             <span>Check</span></Link>
                                                     </div>

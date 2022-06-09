@@ -58,10 +58,6 @@
     & li {
       font-size: 30px;
 
-      &:nth-child(2) {
-        display: none;
-      }
-
       & span {
         font-size: 20px;
         color: #222222;
@@ -69,6 +65,3 @@
     }
   }
 }
-
-
-
